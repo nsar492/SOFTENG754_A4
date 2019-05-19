@@ -25,6 +25,15 @@ public class TestAbstraction extends TestCase{
 	}	
 	
 	//	Test getNumberOfCommitedFiles
+	//
+	public void testGetNumberOfCommitedFiles() {
+		Abstractor abst = new Abstractor();
+		abst.fetchLastCommitDetails();
+		Integer expectedFileCount = 4;
+		
+		assertEquals(expectedFileCount, abst.getNumberOfCommitedFiles());
+	}
+	
 	//	Test getNamesOfCommitedFiles
 	//	Test getCommitAbstract
 	//	Test getFileAbstract

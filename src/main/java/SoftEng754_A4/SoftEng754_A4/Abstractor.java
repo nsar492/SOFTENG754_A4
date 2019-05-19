@@ -23,4 +23,9 @@ public class Abstractor implements Abstraction {
 		// TODO Auto-generated method stub
 		return this.commitReader.getLastCommitFileMap();
 	}
+
+	public Integer getNumberOfCommitedFiles() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
