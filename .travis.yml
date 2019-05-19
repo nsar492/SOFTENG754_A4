@@ -5,3 +5,12 @@ jdk: oraclejdk8
 branches:
   only:
   - master
+  
+ before_install:
+  - pip install --user codecov
+after_success:
+  - codecov --file coverage/lcov.info --disable search
+  
+script:
+  - "mvn cobertura:cobertura"
+  - bash <(curl -s https://codecov.io/bash -t a8782c5f-763d-434d-bad9-7ee16b6c61b2)
