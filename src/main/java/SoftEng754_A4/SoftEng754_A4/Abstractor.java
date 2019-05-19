@@ -2,13 +2,17 @@ package SoftEng754_A4.SoftEng754_A4;
 
 public class Abstractor implements Abstraction {
 
+	private GitReader commitReader;
+	
+	public Abstractor() {
+		commitReader = new GitReader();
+	}
+	
 	public GitReader getCommitDetails() {
-		GitReader latestCommit = new GitReader();
-		
 		// get and return the details of latest commit given the git repo link and branch name
-		latestCommit.getLatestCommit();
+		commitReader.getLatestCommit();
 		
-		return latestCommit;
+		return this.commitReader;
 	}
 
 }

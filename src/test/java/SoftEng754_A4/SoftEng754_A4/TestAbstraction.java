@@ -5,11 +5,18 @@ import junit.framework.TestCase;
 public class TestAbstraction extends TestCase{
 	
 	//	Test getCommitDetails
+	//  check that function should not return null
 	public void testGetCommitDetailsNotNull() {
 		Abstraction abst = new Abstractor();
 		
 		assertNotNull(abst.getCommitDetails());
 	}
+	
+	
+	
+	
+	
+	
 	//	Test getNumberOfCommitedFiles
 	//	Test getNamesOfCommitedFiles
 	//	Test getCommitAbstract
