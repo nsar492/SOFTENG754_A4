@@ -8,11 +8,9 @@ public class Abstractor implements Abstraction {
 		commitReader = new GitReader();
 	}
 	
-	public GitReader getCommitDetails() {
+	public void fetchLastCommitDetails() {
 		// get and return the details of latest commit given the git repo link and branch name
 		commitReader.getLatestCommit();
-		
-		return this.commitReader;
 	}
 
 }
