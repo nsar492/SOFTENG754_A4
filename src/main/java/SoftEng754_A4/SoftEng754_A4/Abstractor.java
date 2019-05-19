@@ -21,6 +21,6 @@ public class Abstractor implements Abstraction {
 
 	public Map<String, String> getFileMap() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.commitReader.getLastCommitFileMap();
 	}
 }
