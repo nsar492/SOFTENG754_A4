@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 public class TestAbstraction extends TestCase{
 	
 	//	Test getCommitDetails
-	public void testGetCommitDetails() {
+	public void testGetCommitDetailsNotNull() {
 		Abstraction abst = new Abstractor();
 		
 		assertNotNull(abst.getCommitDetails());
