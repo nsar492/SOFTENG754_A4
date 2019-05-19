@@ -13,4 +13,7 @@ public class Abstractor implements Abstraction {
 		commitReader.getLatestCommit();
 	}
 
+	public GitReader getGitReader() {
+		return this.commitReader;	
+	}
 }
