@@ -1,5 +1,7 @@
 package SoftEng754_A4.SoftEng754_A4;
 
+import java.util.Map;
+
 public class Abstractor implements Abstraction {
 
 	private GitReader commitReader;
@@ -15,5 +17,10 @@ public class Abstractor implements Abstraction {
 
 	public GitReader getGitReader() {
 		return this.commitReader;	
+	}
+
+	public Map<String, String> getFileMap() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
