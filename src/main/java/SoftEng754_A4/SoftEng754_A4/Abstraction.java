@@ -7,4 +7,6 @@ public interface Abstraction {
 	public void fetchLastCommitDetails();
 
 	public Map<String, String> getFileMap();
+	
+	public Boolean ifNewCommit();
 }

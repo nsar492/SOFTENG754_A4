@@ -8,6 +8,15 @@ public class TestAbstraction extends TestCase{
 	
 	//	Test fetchLastCommitDetails
 	//
+	//  Test that ifNewCommit function
+	public void testIfNewCommit() {
+		
+		Abstractor abst = new Abstractor();
+		
+		assertEquals(abst.ifNewCommit(), Boolean.TRUE);
+	}
+	
+	
 	//  Test that fetchLastCommitDetails function should not return null
 	public void testFetchCommitDetailsNotNull() {
 		

@@ -28,4 +28,9 @@ public class Abstractor implements Abstraction {
 		// TODO Auto-generated method stub
 		return commitReader.getLastCommitFileMap().size();
 	}
+
+	public Boolean ifNewCommit() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
