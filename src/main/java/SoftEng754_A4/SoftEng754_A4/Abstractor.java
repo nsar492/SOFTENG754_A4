@@ -1,6 +1,7 @@
 package SoftEng754_A4.SoftEng754_A4;
 
 import java.util.Map;
+import java.util.Set;
 
 public class Abstractor implements Abstraction {
 
@@ -31,5 +32,10 @@ public class Abstractor implements Abstraction {
 
 	public Boolean ifNewCommit() {
 		return commitReader.checkForNewCommits();
+	}
+
+	public Set<String> getCommitedFileNames() {
+		// TODO Auto-generated method stub
+		return this.commitReader.getLastCommitFileMap().keySet();
 	}
 }

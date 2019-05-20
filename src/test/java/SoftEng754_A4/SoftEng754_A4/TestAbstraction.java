@@ -1,10 +1,33 @@
 package SoftEng754_A4.SoftEng754_A4;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import org.mockito.Mockito;
 
 import junit.framework.TestCase;
+import scala.collection.mutable.HashSet;
 
 public class TestAbstraction extends TestCase{
+	
+	//  Helper functions
+	public boolean checkMapKeySet(Set actual, HashSet expected)
+	{
+		int matchCount = 0;
+		if(actual.size() == expected.size())
+		{
+			for(Object s : actual)
+			{
+				if (expected.contains(s))
+					matchCount ++;
+			}
+		}
+		
+		return (matchCount == actual.size());
+	}
+	
 	
 	//	Test fetchLastCommitDetails
 	//
@@ -54,6 +77,23 @@ public class TestAbstraction extends TestCase{
 	}
 	
 	//	Test getNamesOfCommitedFiles
+	public void testGetNamesOfCommitedFiles() {
+		
+//		Set expectedSet = new ;
+//		expectedSet.add("abc");
+//		expectedSet.add("bcd");
+//		expectedSet.add("cde");
+//		expectedSet.add("def");
+//		
+//		
+		Abstractor abstractor = Mockito.mock(Abstractor.class);
+		TestAbstraction testObject = Mockito.mock(TestAbstraction.class);
+		
+		Mockito.when(testObject.checkMapKeySet(abstractor.getCommitedFileNames(), new HashSet<String>())).thenReturn(true);
+		
+		assertEquals(checkMapKeySet(abstractor.getCommitedFileNames(), new HashSet<String>()), true);
+		
+	}
 	//	Test getCommitAbstract
 	//	Test getFileAbstract
 	//	Test getTempFileFromRepo

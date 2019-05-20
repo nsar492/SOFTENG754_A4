@@ -1,6 +1,7 @@
 package SoftEng754_A4.SoftEng754_A4;
 
 import java.util.Map;
+import java.util.Set;
 
 public interface Abstraction {
 
@@ -9,4 +10,6 @@ public interface Abstraction {
 	public Map<String, String> getFileMap();
 	
 	public Boolean ifNewCommit();
+	
+	public Set<String> getCommitedFileNames();
 }
