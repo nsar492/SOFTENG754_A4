@@ -1,5 +1,7 @@
 package SoftEng754_A4.SoftEng754_A4;
 
+import org.mockito.Mockito;
+
 import junit.framework.TestCase;
 
 public class TestAbstraction extends TestCase{
@@ -27,11 +29,13 @@ public class TestAbstraction extends TestCase{
 	//	Test getNumberOfCommitedFiles
 	//
 	public void testGetNumberOfCommitedFiles() {
-		Abstractor abst = new Abstractor();
-		abst.fetchLastCommitDetails();
 		Integer expectedFileCount = 4;
 		
-		assertEquals(expectedFileCount, abst.getNumberOfCommitedFiles());
+		Abstractor abst = Mockito.mock(Abstractor.class);
+		
+		Mockito.when(abst.getNumberOfCommitedFiles()).thenReturn(4);
+		
+		assertEquals(abst.getNumberOfCommitedFiles(), expectedFileCount);
 	}
 	
 	//	Test getNamesOfCommitedFiles
