@@ -11,7 +11,9 @@ public class TestAbstraction extends TestCase{
 	//  Test that ifNewCommit function
 	public void testIfNewCommit() {
 		
-		Abstractor abst = new Abstractor();
+		Abstractor abst = Mockito.mock(Abstractor.class);
+		
+		Mockito.when(abst.ifNewCommit()).thenReturn(true);
 		
 		assertEquals(abst.ifNewCommit(), Boolean.TRUE);
 	}

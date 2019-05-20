@@ -7,6 +7,7 @@ public class GitReader {
 
 	private Map<String, String> fileMap = null;
 	
+	
 	public void getLatestCommit() {
 		this.fileMap = new HashMap<String, String>();
 	}
@@ -14,6 +15,12 @@ public class GitReader {
 	public Map<String, String> getLastCommitFileMap() {
 		// TODO Auto-generated method stub
 		return this.fileMap;
+	}
+
+	public Boolean checkForNewCommits() {
+		// Write the code to check git repo for new commits.
+		// Return false by default
+		return false;		
 	}
 
 }

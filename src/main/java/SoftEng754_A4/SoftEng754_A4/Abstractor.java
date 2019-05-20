@@ -30,7 +30,6 @@ public class Abstractor implements Abstraction {
 	}
 
 	public Boolean ifNewCommit() {
-		// TODO Auto-generated method stub
-		return null;
+		return commitReader.checkForNewCommits();
 	}
 }
