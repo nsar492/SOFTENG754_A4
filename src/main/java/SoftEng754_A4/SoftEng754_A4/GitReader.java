@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class GitReader {
 
+	// This map stores the committed file names and address
 	private Map<String, String> fileMap = null;
 	
 	

@@ -8,33 +8,37 @@ public class TestAbstraction extends TestCase{
 	
 	//	Test fetchLastCommitDetails
 	//
-	//  Test that ifNewCommit function
 	public void testIfNewCommit() {
 		
-		Abstractor abst = Mockito.mock(Abstractor.class);
+		Abstractor abstractor = Mockito.mock(Abstractor.class);
+		Mockito.when(abstractor.ifNewCommit()).thenReturn(true);
 		
-		Mockito.when(abst.ifNewCommit()).thenReturn(true);
-		
-		assertEquals(abst.ifNewCommit(), Boolean.TRUE);
+		assertEquals(abstractor.ifNewCommit(), Boolean.TRUE);
 	}
 	
+	public void testIfNewCommitNegative() {
+		
+		Abstractor abstractor = Mockito.mock(Abstractor.class);
+		Mockito.when(abstractor.ifNewCommit()).thenReturn(false);
+		
+		assertEquals(abstractor.ifNewCommit(), Boolean.FALSE);
+	}
 	
-	//  Test that fetchLastCommitDetails function should not return null
-	public void testFetchCommitDetailsNotNull() {
+	public void testFetchLastCommitDetailsNotNull() {
 		
-		Abstractor abst = new Abstractor();
-		abst.fetchLastCommitDetails();
+		Abstractor abstractor = new Abstractor();
+		abstractor.fetchLastCommitDetails();
 		
-		assertNotNull(abst.getGitReader());
+		assertNotNull(abstractor.getGitReader());
 	}
 	
 	//  Test that fetchLastCommitDetails function returns a map of file names and file paths
 	public void testFetchLastCommitDetailsFileListNotNull() {
 		
-		Abstraction abst = new Abstractor();
-		abst.fetchLastCommitDetails();
+		Abstraction abstractor = new Abstractor();
+		abstractor.fetchLastCommitDetails();
 		
-		assertNotNull(abst.getFileMap());
+		assertNotNull(abstractor.getFileMap());
 	}	
 	
 	//	Test getNumberOfCommitedFiles
@@ -42,11 +46,11 @@ public class TestAbstraction extends TestCase{
 	public void testGetNumberOfCommitedFiles() {
 		Integer expectedFileCount = 4;
 		
-		Abstractor abst = Mockito.mock(Abstractor.class);
+		Abstractor abstractor = Mockito.mock(Abstractor.class);
 		
-		Mockito.when(abst.getNumberOfCommitedFiles()).thenReturn(4);
+		Mockito.when(abstractor.getNumberOfCommitedFiles()).thenReturn(4);
 		
-		assertEquals(abst.getNumberOfCommitedFiles(), expectedFileCount);
+		assertEquals(abstractor.getNumberOfCommitedFiles(), expectedFileCount);
 	}
 	
 	//	Test getNamesOfCommitedFiles
