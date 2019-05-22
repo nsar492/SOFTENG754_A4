@@ -44,4 +44,12 @@ public class Abstractor implements Abstraction {
 		// TODO Auto-generated method stub
 		return this.commitReader.downloadFileFromGit();
 	}
+
+	// returns a map with line number as key and 
+	public Map<Integer, String> getFileAbstract() {
+		// TODO Auto-generated method stub
+		// code to use machine learning and run abstraction on the 
+		// file and return a map of the comments goes here
+		return null;
+	}
 }

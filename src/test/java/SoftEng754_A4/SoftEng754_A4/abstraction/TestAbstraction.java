@@ -1,6 +1,7 @@
 package SoftEng754_A4.SoftEng754_A4.abstraction;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -107,9 +108,29 @@ public class TestAbstraction extends TestCase{
 		
 		assertEquals(abstractor.downloadTempFileFromRepo(), "D:/test.java");
 	}
+
+	
+	//	Test getFileAbstract
+	//
+	public void testGetFileAbstractNotNull() {
+		Abstractor abstractor = new Abstractor();
+		
+		Abstractor abstractor2 = Mockito.spy(abstractor);
+		Mockito.when(abstractor2.getFileAbstract()).thenReturn(new HashMap<Integer, String>());
+		
+		assertNotNull(abstractor2.getFileAbstract());
+	}
+	
+	public void testGetFileAbstractValue() {
+		Abstractor abstractor = new Abstractor();
+		
+		Abstractor abstractor2 = Mockito.spy(abstractor);
+		Mockito.when(abstractor2.getFileAbstract()).thenReturn(new HashMap<Integer, String>());
+		
+		assertEquals(abstractor2.getFileAbstract(), new HashMap<Integer, String>());
+	}
 	
 	//	Test getCommitAbstract
-	//	Test getFileAbstract
 	
 	//	Test deleteTempFileFromRepo
 

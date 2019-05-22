@@ -12,4 +12,6 @@ public interface Abstraction {
 	public Boolean ifNewCommit();
 	
 	public Set<String> getCommitedFileNames();
+	
+	public Map<Integer, String> getFileAbstract();
 }
