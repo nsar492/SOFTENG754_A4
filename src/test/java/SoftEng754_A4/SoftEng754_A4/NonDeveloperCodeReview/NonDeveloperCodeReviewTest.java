@@ -2,11 +2,15 @@ package SoftEng754_A4.SoftEng754_A4.NonDeveloperCodeReview;
 
 import junit.framework.TestCase;
 
+import org.junit.Test;
+import org.mockito.Mockito;
+import SoftEng754_A4.SoftEng754_A4.NonDeveloperCodeReview.PullRequest;
+
 public class NonDeveloperCodeReviewTest extends TestCase{
 	
 	// Requirement 11 
 	// Positive test case to check if the given parameters fetch a valid pull request or not 
-	public void TestSendAutomatedCodeReviewAndAbstraction_CheckIfPullRequestIDIsValid() {
+	public void testSendAutomatedCodeReviewAndAbstraction_CheckIfPullRequestIDIsValid() {
 		//Given
 		// Name of the branch for which pull request is created
 		String branch = "sendAutomatedCodeReviewAndAbstraction";
@@ -17,12 +21,12 @@ public class NonDeveloperCodeReviewTest extends TestCase{
 		//Work item linked with the Pull Request
 		String linkedWorkItem = "SSC032";
 				
-		PullRequest pullRequest = new PullRequest();
+		PullRequest pullRequest = Mockito.mock(PullRequest.class);
 		
 		//when
-		int pullRequestID = pullRequest.getPullRequest(branch, createdBy, linkedWorkItem);
+		Mockito.when(pullRequest.getPullRequest(branch, createdBy, linkedWorkItem)).thenReturn(1);
 		
 		//then
-		assertTrue(pullRequestID != 0);
+		assertEquals(1, pullRequest.getPullRequest(branch, createdBy, linkedWorkItem));
 	}
 }
