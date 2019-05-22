@@ -32,10 +32,7 @@ public class TestAbstraction extends TestCase{
 		assertEquals(abstractor1.ifNewCommit(), Boolean.TRUE);
 	}
 	
-	public void testIfNewCommitNegative() {
-		
-		Abstractor abstractor = Mockito.mock(Abstractor.class);
-		Mockito.when(abstractor.ifNewCommit()).thenReturn(false);
+	public void testIfNewCommitDefaultValue() {
 		
 		assertEquals(abstractor.ifNewCommit(), Boolean.FALSE);
 	}
