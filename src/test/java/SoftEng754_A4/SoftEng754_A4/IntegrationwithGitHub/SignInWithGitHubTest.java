@@ -62,7 +62,7 @@ public class SignInWithGitHubTest {
         assertEquals(user, signIn.signInUser(username, password));
     }
 
-//  Testing successful sign in
+//  Testing failed sign in
     @Test(expected = RequestException.class)
     public void testSignInFail(){
         when(signIn.signInUser(username, "1234")).thenThrow(RequestException.class);
