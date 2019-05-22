@@ -15,6 +15,11 @@ public class GitReader {
 
 	public Map<String, String> getLastCommitFileMap() {
 		// TODO Auto-generated method stub
+		// run code to get the last commit details and store in the file map
+		return this.fileMap;
+	}
+	
+	public Map<String, String> getLocalFileMap() {
 		return this.fileMap;
 	}
 

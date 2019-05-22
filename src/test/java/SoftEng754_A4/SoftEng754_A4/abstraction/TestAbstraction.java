@@ -110,6 +110,7 @@ public class TestAbstraction extends TestCase{
 	}
 
 	
+	
 	//	Test getFileAbstract
 	//
 	public void testGetFileAbstractNotNull() {
@@ -130,7 +131,16 @@ public class TestAbstraction extends TestCase{
 		assertEquals(abstractor2.getFileAbstract(), new HashMap<Integer, String>());
 	}
 	
+	
+	
 	//	Test getCommitAbstract
+	//
+	public void testGetCommitAbstractNotNull() {
+		Abstractor abstractor = new Abstractor();
+		abstractor.fetchLastCommitDetails();
+		
+		assertNotNull(abstractor.getCommitAbstract());
+	}
 	
 	//	Test deleteTempFileFromRepo
 

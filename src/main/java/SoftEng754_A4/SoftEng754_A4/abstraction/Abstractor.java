@@ -1,11 +1,13 @@
 package SoftEng754_A4.SoftEng754_A4.abstraction;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 public class Abstractor implements Abstraction {
 
 	private GitReader commitReader;
+	private Map<Integer, String> fileAbstractMap;
 	
 	public Abstractor() {
 		commitReader = new GitReader();
@@ -44,12 +46,22 @@ public class Abstractor implements Abstraction {
 		// TODO Auto-generated method stub
 		return this.commitReader.downloadFileFromGit();
 	}
+	
+	public void runFileAbstract() {
+		// code to use machine learning and run abstraction on the 
+		// file and return a map of the comments goes here
+		this.fileAbstractMap = new HashMap<Integer, String>();
+	}
 
 	// returns a map with line number as key and 
 	public Map<Integer, String> getFileAbstract() {
+		return this.fileAbstractMap;
+	}
+
+	// getFileAbstract() only abstracts one file, getCommitAstract loops through all files in a commit
+	// and returns a cumulative abstract 
+	public Map<String, Map<Integer, String>> getCommitAbstract() {
 		// TODO Auto-generated method stub
-		// code to use machine learning and run abstraction on the 
-		// file and return a map of the comments goes here
 		return null;
 	}
 }
