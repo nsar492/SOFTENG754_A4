@@ -62,6 +62,12 @@ public class Abstractor implements Abstraction {
 	// and returns a cumulative abstract 
 	public Map<String, Map<Integer, String>> getCommitAbstract() {
 		// TODO Auto-generated method stub
-		return null;
+		Map<String, Map<Integer, String>> tempMap = new HashMap<String, Map<Integer,String>>();
+		
+		for(String s : this.commitReader.getLocalFileMap().keySet())
+		{
+			tempMap.put(s, getFileAbstract());
+		}
+		return tempMap;
 	}
 }
