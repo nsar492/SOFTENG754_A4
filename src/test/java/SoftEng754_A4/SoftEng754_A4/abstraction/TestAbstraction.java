@@ -15,14 +15,21 @@ import scala.collection.mutable.HashSet;
 
 public class TestAbstraction extends TestCase{
 	
+	private Abstractor abstractor;
+	
+	public TestAbstraction() {
+		// TODO Auto-generated constructor stub
+		abstractor = new Abstractor();
+	}
+	
 	//	Test fetchLastCommitDetails
 	//
 	public void testIfNewCommit() {
 		
-		Abstractor abstractor = Mockito.mock(Abstractor.class);
-		Mockito.when(abstractor.ifNewCommit()).thenReturn(true);
+		Abstractor abstractor1 = Mockito.spy(abstractor);
+		Mockito.when(abstractor1.ifNewCommit()).thenReturn(true);
 		
-		assertEquals(abstractor.ifNewCommit(), Boolean.TRUE);
+		assertEquals(abstractor1.ifNewCommit(), Boolean.TRUE);
 	}
 	
 	public void testIfNewCommitNegative() {
@@ -134,6 +141,11 @@ public class TestAbstraction extends TestCase{
 	}
 	
 	//	Test deleteTempFileFromRepo
+	public void testDeleteTempFileFromRepo() {
+		
+		
+		
+	}
 
 	
 	
