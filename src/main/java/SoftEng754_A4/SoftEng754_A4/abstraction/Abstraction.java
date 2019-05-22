@@ -14,4 +14,6 @@ public interface Abstraction {
 	public Set<String> getCommitedFileNames();
 	
 	public Map<Integer, String> getFileAbstract();
+	
+	public Map<String, Map<Integer, String>> getCommitAbstract();
 }

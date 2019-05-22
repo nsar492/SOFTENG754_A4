@@ -15,23 +15,6 @@ import scala.collection.mutable.HashSet;
 
 public class TestAbstraction extends TestCase{
 	
-	//  Helper functions
-	public boolean checkMapKeySet(Set actual, HashSet expected)
-	{
-		int matchCount = 0;
-		if(actual.size() == expected.size())
-		{
-			for(Object s : actual)
-			{
-				if (expected.contains(s))
-					matchCount ++;
-			}
-		}
-		
-		return (matchCount == actual.size());
-	}
-	
-	
 	//	Test fetchLastCommitDetails
 	//
 	public void testIfNewCommit() {
@@ -142,6 +125,43 @@ public class TestAbstraction extends TestCase{
 		assertNotNull(abstractor.getCommitAbstract());
 	}
 	
+	// validate the map returned by getCommitAbstract function
+	public void testGetCommitAbstract() {
+		Abstractor abstractor = new Abstractor();
+		abstractor.fetchLastCommitDetails();
+		
+		assertEquals(abstractor.getCommitAbstract(), getExpectedCommitDetailMapTime());
+	}
+	
 	//	Test deleteTempFileFromRepo
 
+	
+	
+	
+	
+	
+	
+	
+	
+//  Helper functions
+	public boolean checkMapKeySet(Set actual, HashSet expected)
+	{
+		int matchCount = 0;
+		if(actual.size() == expected.size())
+		{
+			for(Object s : actual)
+			{
+				if (expected.contains(s))
+					matchCount ++;
+			}
+		}
+		
+		return (matchCount == actual.size());
+	}
+	
+	
+	public Map<String, Map<Integer, String>> getExpectedCommitDetailMapTime()
+	{
+		return new HashMap<String, Map<Integer, String>>();
+	}
 }
