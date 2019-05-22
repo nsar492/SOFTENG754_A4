@@ -39,7 +39,6 @@ public class TestAbstraction extends TestCase{
 	
 	public void testFetchLastCommitDetailsNotNull() {
 		
-		Abstractor abstractor = new Abstractor();
 		abstractor.fetchLastCommitDetails();
 		
 		assertNotNull(abstractor.getGitReader());
@@ -49,7 +48,6 @@ public class TestAbstraction extends TestCase{
 	//
 	public void testFetchLastCommitDetailsFileListNotNull() {
 		
-		Abstraction abstractor = new Abstractor();
 		abstractor.fetchLastCommitDetails();
 		
 		assertNotNull(abstractor.getFileMap());
@@ -60,13 +58,13 @@ public class TestAbstraction extends TestCase{
 	//	Test getNumberOfCommitedFiles
 	//
 	public void testGetNumberOfCommitedFiles() {
-		Integer expectedFileCount = 4;
+		Integer expectedFileCount = 4, actualFileCount = 4;
 		
-		Abstractor abstractor = Mockito.mock(Abstractor.class);
+		abstractor = Mockito.mock(Abstractor.class);
 		
-		Mockito.when(abstractor.getNumberOfCommitedFiles()).thenReturn(4);
+		Mockito.when(abstractor.getNumberOfCommitedFiles()).thenReturn(expectedFileCount);
 		
-		assertEquals(abstractor.getNumberOfCommitedFiles(), expectedFileCount);
+		assertEquals(abstractor.getNumberOfCommitedFiles(), actualFileCount);
 	}
 	
 	
@@ -75,7 +73,8 @@ public class TestAbstraction extends TestCase{
 	//
 	public void testGetNamesOfCommitedFiles() {
 		
-		Abstractor abstractor = Mockito.mock(Abstractor.class);
+		abstractor = Mockito.mock(Abstractor.class);
+		
 		TestAbstraction testObject = Mockito.mock(TestAbstraction.class);
 		
 		Mockito.when(testObject.checkMapKeySet(abstractor.getCommitedFileNames(), new HashSet<String>())).thenReturn(true);
@@ -89,11 +88,11 @@ public class TestAbstraction extends TestCase{
 	//	Test downloadTempFileFromRepo
 	//
 	public void testDownloadTempFileFromRepo() {
-		Abstractor abstractor = Mockito.mock(Abstractor.class);
+		Abstractor abstractor1 = Mockito.spy(abstractor);
 		
-		Mockito.when(abstractor.downloadTempFileFromRepo()).thenReturn("D:/test.java");
+		Mockito.when(abstractor1.downloadTempFileFromRepo()).thenReturn("D:/test.java");
 		
-		assertEquals(abstractor.downloadTempFileFromRepo(), "D:/test.java");
+		assertEquals(abstractor1.downloadTempFileFromRepo(), "D:/test.java");
 	}
 
 	
@@ -101,8 +100,6 @@ public class TestAbstraction extends TestCase{
 	//	Test getFileAbstract
 	//
 	public void testGetFileAbstractNotNull() {
-		Abstractor abstractor = new Abstractor();
-		
 		Abstractor abstractor2 = Mockito.spy(abstractor);
 		Mockito.when(abstractor2.getFileAbstract()).thenReturn(new HashMap<Integer, String>());
 		
@@ -110,7 +107,6 @@ public class TestAbstraction extends TestCase{
 	}
 	
 	public void testGetFileAbstractValue() {
-		Abstractor abstractor = new Abstractor();
 		
 		Abstractor abstractor2 = Mockito.spy(abstractor);
 		Mockito.when(abstractor2.getFileAbstract()).thenReturn(new HashMap<Integer, String>());
@@ -123,7 +119,7 @@ public class TestAbstraction extends TestCase{
 	//	Test getCommitAbstract
 	//
 	public void testGetCommitAbstractNotNull() {
-		Abstractor abstractor = new Abstractor();
+		
 		abstractor.fetchLastCommitDetails();
 		
 		assertNotNull(abstractor.getCommitAbstract());
@@ -131,7 +127,7 @@ public class TestAbstraction extends TestCase{
 	
 	// validate the map returned by getCommitAbstract function
 	public void testGetCommitAbstract() {
-		Abstractor abstractor = new Abstractor();
+		
 		abstractor.fetchLastCommitDetails();
 		
 		assertEquals(abstractor.getCommitAbstract(), getExpectedCommitDetailMapTime());
