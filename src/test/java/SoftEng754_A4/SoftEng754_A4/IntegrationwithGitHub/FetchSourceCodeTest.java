@@ -6,7 +6,6 @@ import org.eclipse.egit.github.core.RepositoryId;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
-
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.doReturn;
 
