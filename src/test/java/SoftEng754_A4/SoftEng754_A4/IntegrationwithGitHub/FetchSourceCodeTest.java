@@ -39,11 +39,19 @@ public class FetchSourceCodeTest {
         assertFalse(getCode.pullRequestValid(null, pullId));
     }
 
-//  Test when repo is not null
+//  Test when repo is not null and is valid
     @Test
-    public void testWhenRepoIsNotNull() {
+    public void testWhenRepoIsNotNullAndIsValid() {
         doReturn(true).when(getCode).pullRequestValid(repoId, pullId);
         assertTrue(getCode.pullRequestValid(repoId, pullId));
+    }
+
+//  Test when repo is not null but is not valid
+    @Test
+    public void testWhenRepoIsNotNullAndIsNotValid() {
+        RepositoryId invalidRepo = new RepositoryId("No","nothing");
+        doReturn(false).when(getCode).pullRequestValid(invalidRepo, pullId);
+        assertFalse(getCode.pullRequestValid(invalidRepo, pullId));
     }
 
 //  Test the pull request received successfully

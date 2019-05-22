@@ -34,14 +34,23 @@ public class AutomaticallyMergeCodeTest {
         assertFalse(merge.isRepoValid(null));
     }
 
-    //  Test when repo is not null
+    //  Test when repo is not null and is valid
     @Test
-    public void testWhenRepoIsNotNull() {
+    public void testWhenRepoIsNotNullAndIs() {
         doReturn(true).when(merge).isRepoValid(repoId);
         assertTrue(merge.isRepoValid(repoId));
     }
 
-//  Test when code is mergable
+// Test when repo is not null but is not valid
+    @Test
+    public void testWhenRepoIsNotNullAndIsNotValid() {
+        RepositoryId invalidRepo = new RepositoryId("No","nothing");
+        doReturn(false).when(merge).isRepoValid(invalidRepo);
+        assertFalse(merge.isRepoValid(invalidRepo));
+    }
+
+
+    //  Test when code is mergable
     @Test
     public void testIsMergable(){
         doReturn(true).when(merge).isCodeMergable(codeToMerge);
