@@ -49,7 +49,7 @@ public class AutomaticallyMergeCodeTest {
     }
 
 
-//  Test when code is notMergable
+//  Test when code is not Mergable
     @Test
     public void testNotMergeable(){
         doReturn(false).when(merge).isCodeMergable(codeToMerge);
