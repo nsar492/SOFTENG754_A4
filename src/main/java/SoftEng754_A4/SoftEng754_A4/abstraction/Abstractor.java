@@ -13,7 +13,7 @@ public class Abstractor implements Abstraction {
 	
 	public void fetchLastCommitDetails() {
 		// get and return the details of latest commit given the git repo link and branch name
-		commitReader.getLatestCommit();
+		this.commitReader.getLatestCommit();
 	}
 
 	public GitReader getGitReader() {
@@ -27,15 +27,21 @@ public class Abstractor implements Abstraction {
 
 	public Integer getNumberOfCommitedFiles() {
 		// TODO Auto-generated method stub
-		return commitReader.getLastCommitFileMap().size();
+		return this.commitReader.getLastCommitFileMap().size();
 	}
 
 	public Boolean ifNewCommit() {
-		return commitReader.checkForNewCommits();
+		return this.commitReader.checkForNewCommits();
 	}
 
 	public Set<String> getCommitedFileNames() {
 		// TODO Auto-generated method stub
 		return this.commitReader.getLastCommitFileMap().keySet();
+	}
+
+	// downloads file and returns file path
+	public String downloadTempFileFromRepo() {
+		// TODO Auto-generated method stub
+		return this.commitReader.downloadFileFromGit();
 	}
 }

@@ -24,4 +24,9 @@ public class GitReader {
 		return false;		
 	}
 
+	public String downloadFileFromGit() {
+		// TODO Auto-generated method stub
+		return "";
+	}
+
 }

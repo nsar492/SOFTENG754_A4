@@ -58,6 +58,7 @@ public class TestAbstraction extends TestCase{
 	}
 	
 	//  Test that fetchLastCommitDetails function returns a map of file names and file paths
+	//
 	public void testFetchLastCommitDetailsFileListNotNull() {
 		
 		Abstraction abstractor = new Abstractor();
@@ -65,6 +66,8 @@ public class TestAbstraction extends TestCase{
 		
 		assertNotNull(abstractor.getFileMap());
 	}	
+	
+	
 	
 	//	Test getNumberOfCommitedFiles
 	//
@@ -78,7 +81,10 @@ public class TestAbstraction extends TestCase{
 		assertEquals(abstractor.getNumberOfCommitedFiles(), expectedFileCount);
 	}
 	
+	
+	
 	//	Test getNamesOfCommitedFiles
+	//
 	public void testGetNamesOfCommitedFiles() {
 		
 		Abstractor abstractor = Mockito.mock(Abstractor.class);
@@ -90,9 +96,21 @@ public class TestAbstraction extends TestCase{
 		
 	}
 	
+	
+	
+	//	Test downloadTempFileFromRepo
+	//
+	public void testDownloadTempFileFromRepo() {
+		Abstractor abstractor = Mockito.mock(Abstractor.class);
+		
+		Mockito.when(abstractor.downloadTempFileFromRepo()).thenReturn("D:/test.java");
+		
+		assertEquals(abstractor.downloadTempFileFromRepo(), "D:/test.java");
+	}
+	
 	//	Test getCommitAbstract
 	//	Test getFileAbstract
-	//	Test getTempFileFromRepo
+	
 	//	Test deleteTempFileFromRepo
 
 }
