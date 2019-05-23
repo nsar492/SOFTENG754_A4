@@ -70,4 +70,9 @@ public class Abstractor implements Abstraction {
 		}
 		return tempMap;
 	}
+
+	public boolean removeTempFiles() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

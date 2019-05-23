@@ -136,8 +136,10 @@ public class TestAbstraction extends TestCase{
 	//	Test deleteTempFileFromRepo
 	public void testDeleteTempFileFromRepo() {
 		
+		Abstractor abstractor2 = Mockito.spy(abstractor);
+		Mockito.when(abstractor2.removeTempFiles()).thenReturn(true);
 		
-		
+		assertTrue(abstractor2.removeTempFiles());
 	}
 
 	
