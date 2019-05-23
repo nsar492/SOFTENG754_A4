@@ -2,7 +2,6 @@ package SoftEng754_A4.SoftEng754_A4.NonDeveloperCodeReview;
 
 import junit.framework.TestCase;
 
-import org.junit.Test;
 import org.mockito.Mockito;
 import SoftEng754_A4.SoftEng754_A4.NonDeveloperCodeReview.PullRequest;
 
