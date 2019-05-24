@@ -25,6 +25,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/ADMIN/eclipse-workspace/SOFTENG754_A4/Libraries/mockito-all-1.9.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/ADMIN/eclipse-workspace/SOFTENG754_A4/Libraries/junit.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ADMIN/eclipse-workspace/SOFTENG754_A4/Libraries/junit4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
