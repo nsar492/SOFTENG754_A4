@@ -3,6 +3,7 @@ package SoftEng754_A4.SoftEng754_A4.NonDeveloperCodeReview;
 import java.io.File;
 
 import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mockito;
 import junit.framework.TestCase;
 
@@ -14,6 +15,8 @@ public class InitialAutomatedCodeReview extends TestCase {
 	private PullRequest pullRequest;
 	private File file;
 	private NonDeveloperCodeReview nonDeveloperCodeReview;
+	private String developerToolAddress;
+	private String reviewToolAddress;
 	
 	@Before
 	public void setup() {
@@ -21,6 +24,8 @@ public class InitialAutomatedCodeReview extends TestCase {
 		createdBy = "Developer1";
 		linkedWorkItem = "SSC032";
 		file = new File("test.txt");
+		developerToolAddress = "developerToolAddress";
+		reviewToolAddress = "reviewToolAddress";
 	}
 	
 	public void testPullRequestIDIsValid() {
@@ -64,6 +69,17 @@ public class InitialAutomatedCodeReview extends TestCase {
 		
 		Mockito.doThrow(new NullPointerException()).when(nonDeveloperCodeReview)
 				.getAutomatedCodeReviewAndAbstractionFile(branch, pullRequestID, linkedWorkItem); 
+	}
+	
+	public void	testEstablishConnection() {
+		
+		nonDeveloperCodeReview = Mockito.mock(NonDeveloperCodeReview.class);
+		
+		//when
+		Mockito.doReturn(true).when(nonDeveloperCodeReview).establishConnection(developerToolAddress, reviewToolAddress);
+		
+		//then
+		assertTrue(nonDeveloperCodeReview.establishConnection(developerToolAddress, reviewToolAddress));
 	}
 		
 }
