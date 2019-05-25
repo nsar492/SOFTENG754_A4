@@ -39,7 +39,7 @@ public class InitialAutomatedCodeReview extends TestCase {
 		assertFalse(pullRequest.getPullRequest(branch, createdBy, linkedWorkItem) == 0);
 	}
 	
-public void testFetchInitialReviewFile() {
+	public void testFetchInitialReviewFile() {
 		
 		pullRequest = Mockito.mock(PullRequest.class);
 		
@@ -53,6 +53,17 @@ public void testFetchInitialReviewFile() {
 		//then
 		assertEquals(file, nonDeveloperCodeReview
 				.getAutomatedCodeReviewAndAbstractionFile(branch, pullRequestID, linkedWorkItem));
+	}
+
+	@Test (expected = NullPointerException.class)
+	public void testFetchInitialReviewFileThrowsException() {
+		
+		pullRequest = Mockito.mock(PullRequest.class);
+		int pullRequestID = pullRequest.getPullRequest(branch, createdBy, linkedWorkItem);
+		nonDeveloperCodeReview = Mockito.mock(NonDeveloperCodeReview.class);
+		
+		Mockito.doThrow(new NullPointerException()).when(nonDeveloperCodeReview)
+				.getAutomatedCodeReviewAndAbstractionFile(branch, pullRequestID, linkedWorkItem); 
 	}
 		
 }
