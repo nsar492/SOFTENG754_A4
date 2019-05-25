@@ -26,5 +26,13 @@ public class InitialAutomatedCodeReview extends TestCase {
 		assertEquals(0, pullRequest.getPullRequest(branch, createdBy, linkedWorkItem));
 	
 	}
+	
+	public void testPullRequestIDIsInvalid() {
+		pullRequest = Mockito.mock(PullRequest.class);
+		//when
+		Mockito.doReturn(-1).when(pullRequest).getPullRequest(branch, createdBy, linkedWorkItem);
+		
+		assertFalse(pullRequest.getPullRequest(branch, createdBy, linkedWorkItem) == 0);
+	}
 		
 }
