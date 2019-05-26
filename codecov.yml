@@ -5,3 +5,7 @@ coverage:
   precision: 2
   round: down
   range: "70...100"
+
+fixes:
+  - /src/main/java/SoftEng754_A4/SoftEng754_A4/IntegrationwithGitHub/*
+  - /src/main/java/SoftEng754_A4/SoftEng754_A4/NonDeveloperCodeReview/*
