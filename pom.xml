@@ -42,7 +42,6 @@
   </dependencies>
   
   <build>
-	<sourceDirectory>src/main/java/nz/ac/auckland/SOFTENG754_2019_A3</sourceDirectory>
 	<plugins>
 		<plugin>
 			<groupId>org.codehaus.mojo</groupId>
