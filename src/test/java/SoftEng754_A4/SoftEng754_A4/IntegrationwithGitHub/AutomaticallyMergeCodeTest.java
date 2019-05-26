@@ -36,7 +36,7 @@ public class AutomaticallyMergeCodeTest {
 
     //  Test when repo is not null and is valid
     @Test
-    public void testWhenRepoIsNotNullAndIs() {
+    public void testWhenRepoIsNotNullAndIsValid() {
         doReturn(true).when(merge).isRepoValid(repoId);
         assertTrue(merge.isRepoValid(repoId));
     }
