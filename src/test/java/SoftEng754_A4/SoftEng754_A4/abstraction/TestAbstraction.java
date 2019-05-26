@@ -8,10 +8,8 @@ import java.util.Set;
 
 import org.mockito.Mockito;
 
-import SoftEng754_A4.SoftEng754_A4.abstraction.Abstraction;
-import SoftEng754_A4.SoftEng754_A4.abstraction.Abstractor;
+import SoftEng754_A4.SoftEng754_A4.abstraction.*;
 import junit.framework.TestCase;
-import scala.collection.mutable.HashSet;
 
 public class TestAbstraction extends TestCase{
 	
