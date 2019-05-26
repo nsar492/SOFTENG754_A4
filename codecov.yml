@@ -1,7 +1,11 @@
 codecov:
-  token: a8782c5f-763d-434d-bad9-7ee16b6c61b2
+  token: b613c54a-c704-4d5a-ad35-e1a828f3adf1
   
 coverage:
   precision: 2
   round: down
   range: "70...100"
+
+fixes:
+  - "/src/main/java/SoftEng754_A4/SoftEng754_A4/IntegrationwithGitHub/*"
+  - "/src/main/java/SoftEng754_A4/SoftEng754_A4/NonDeveloperCodeReview/*"
