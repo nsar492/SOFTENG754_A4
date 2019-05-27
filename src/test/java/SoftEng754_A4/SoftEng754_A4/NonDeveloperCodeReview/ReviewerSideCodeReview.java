@@ -18,6 +18,8 @@ public class ReviewerSideCodeReview extends TestCase{
 	private PullRequest pullRequest;
 	private File file;
 	private NonDeveloperCodeReview nonDeveloperCodeReview;
+	private String reviewer;
+	private String comment;
 	
 	@Before
 	public void setup() {
@@ -25,6 +27,8 @@ public class ReviewerSideCodeReview extends TestCase{
 		createdBy = "Developer1";
 		linkedWorkItem = "SSC032";
 		file = new File("test.txt");
+		reviewer = "reviewer";
+		comment = "Looks good";
 	}
 	
 	public void testReceiveAutomatedCodeReview() {
@@ -50,4 +54,16 @@ public class ReviewerSideCodeReview extends TestCase{
 		//when
 		Mockito.doThrow(new NullPointerException()).when(nonDeveloperCodeReview).receiveAutomatedCodeReviewAndAbstraction(branch, pullRequestID, linkedWorkItem);
 	}	
+	
+	public void testPostReviewFeedback() {
+		pullRequest = Mockito.mock(PullRequest.class);
+		int pullRequestID = pullRequest.getPullRequest(branch, createdBy, linkedWorkItem);
+		nonDeveloperCodeReview = Mockito.mock(NonDeveloperCodeReview.class);
+		
+		//when
+		Mockito.doReturn(true).when(nonDeveloperCodeReview).postReviewFeedback(pullRequestID, reviewer, comment);
+		
+		//then
+		assertTrue(nonDeveloperCodeReview.postReviewFeedback(pullRequestID, reviewer, comment));
+	}
 }
