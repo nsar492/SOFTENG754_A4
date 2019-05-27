@@ -10,4 +10,6 @@ public interface NonDeveloperCodeReview {
 	public File receiveAutomatedCodeReviewAndAbstraction(String branch, int pullRequestID, String linkedWorkItem);
 	
 	public Boolean postReviewFeedback(int pullRequestID, String reviewer, String commet);
+	
+	public File FetchReviewComments(int pullRequestID);
 }

@@ -1,10 +1,6 @@
 package SoftEng754_A4.SoftEng754_A4.NonDeveloperCodeReview;
 
-import static org.junit.Assert.*;
-
 import java.io.File;
-import java.rmi.RemoteException;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
