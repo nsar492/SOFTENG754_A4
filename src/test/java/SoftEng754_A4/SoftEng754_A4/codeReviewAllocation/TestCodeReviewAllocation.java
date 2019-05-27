@@ -48,4 +48,14 @@ public class TestCodeReviewAllocation extends TestCase{
 		
 		assertFalse(reviewAllocator.addReviewerToDatabase());
 	}
+
+	public void testDeleteReviewerToDatabase()
+	{
+		CodeReviewAllocation reviewAllocator = Mockito.mock(CodeReviewAllocation.class);
+		
+		// When - Then
+		Mockito.when(reviewAllocator.deleteReviewerToDatabase()).thenReturn(true);
+		
+		assertTrue(reviewAllocator.deleteReviewerToDatabase());
+	}
 }
