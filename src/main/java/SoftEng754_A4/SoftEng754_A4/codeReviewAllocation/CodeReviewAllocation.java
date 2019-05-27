@@ -14,4 +14,6 @@ public interface CodeReviewAllocation {
 
 	public String getAvailableReviewerFromDatabase();
 
+	public boolean updateReviewerInfoInDatabase();
+
 }

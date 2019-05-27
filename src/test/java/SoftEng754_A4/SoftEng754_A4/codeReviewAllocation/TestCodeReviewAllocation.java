@@ -113,4 +113,12 @@ public class TestCodeReviewAllocation extends TestCase{
 		
 		assertNull(reviewAllocator.getAvailableReviewerFromDatabase());
 	}
+
+	public void testUpdateReviewerInfoInDatabase()
+	{
+		// When - Then
+		Mockito.when(reviewAllocator.updateReviewerInfoInDatabase()).thenReturn(true);
+		
+		assertTrue(reviewAllocator.updateReviewerInfoInDatabase());
+	}
 }
