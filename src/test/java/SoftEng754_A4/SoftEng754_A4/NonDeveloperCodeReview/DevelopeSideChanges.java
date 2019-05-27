@@ -2,6 +2,7 @@ package SoftEng754_A4.SoftEng754_A4.NonDeveloperCodeReview;
 
 import java.io.File;
 import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mockito;
 
 import junit.framework.TestCase;
@@ -32,5 +33,15 @@ public class DevelopeSideChanges extends TestCase{
 		
 		//then
 		assertEquals(file, nonDeveloperCodeReview.FetchReviewComments(pullRequestID));
+	}
+	
+	@Test (expected = NullPointerException.class)
+	public void testFetchReviewCommets_ThrowsException() {
+		pullRequest = Mockito.mock(PullRequest.class);
+		int pullRequestID = pullRequest.getPullRequest(branch, createdBy, linkedWorkItem);
+		nonDeveloperCodeReview = Mockito.mock(NonDeveloperCodeReview.class);
+		
+		//when
+		Mockito.doThrow(new NullPointerException()).when(nonDeveloperCodeReview).FetchReviewComments(pullRequestID);
 	}
 }
