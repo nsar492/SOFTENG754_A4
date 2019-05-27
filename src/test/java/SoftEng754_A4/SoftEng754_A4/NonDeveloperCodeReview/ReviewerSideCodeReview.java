@@ -5,10 +5,11 @@ import static org.junit.Assert.*;
 import java.io.File;
 
 import org.junit.Before;
-import org.junit.Test;
 import org.mockito.Mockito;
 
-public class ReviewerSideCodeReview {
+import junit.framework.TestCase;
+
+public class ReviewerSideCodeReview extends TestCase{
 
 	private String branch; 
 	private String createdBy;
