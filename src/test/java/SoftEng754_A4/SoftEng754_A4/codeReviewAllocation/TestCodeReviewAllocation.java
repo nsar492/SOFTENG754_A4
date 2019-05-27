@@ -1,11 +1,17 @@
 package SoftEng754_A4.SoftEng754_A4.codeReviewAllocation;
 
+import java.util.ArrayList;
+
+import javax.sound.sampled.ReverbType;
+
+import org.junit.BeforeClass;
 import org.mockito.Mockito;
 
 import junit.framework.TestCase;
 
 public class TestCodeReviewAllocation extends TestCase{
 
+	private CodeReviewAllocation reviewAllocator;
 	/*
 	 * The  developer  can  add/delete  one  or  more  non-developer  
 	 * reviewers  in  this  tool.  A  database is used to store the reviewers’ information.
@@ -29,10 +35,14 @@ public class TestCodeReviewAllocation extends TestCase{
 	 *  test update reviewer information in database
 	 * */
 	
+	@BeforeClass
+	public void initReviewAllocatorObject()
+	{
+		this.reviewAllocator = Mockito.mock(CodeReviewAllocation.class);
+	}
+	
 	public void testAddReviewerToDatabase()
 	{
-		CodeReviewAllocation reviewAllocator = Mockito.mock(CodeReviewAllocation.class);
-		
 		// When - Then
 		Mockito.when(reviewAllocator.addReviewerToDatabase()).thenReturn(true);
 		
@@ -41,8 +51,6 @@ public class TestCodeReviewAllocation extends TestCase{
 	
 	public void testAddReviewerToDatabase_Negative()
 	{
-		CodeReviewAllocation reviewAllocator = Mockito.mock(CodeReviewAllocation.class);
-		
 		// When - Then
 		Mockito.when(reviewAllocator.addReviewerToDatabase()).thenReturn(false);
 		
@@ -51,8 +59,6 @@ public class TestCodeReviewAllocation extends TestCase{
 
 	public void testDeleteReviewerFromDatabase()
 	{
-		CodeReviewAllocation reviewAllocator = Mockito.mock(CodeReviewAllocation.class);
-		
 		// When - Then
 		Mockito.when(reviewAllocator.deleteReviewerFromDatabase()).thenReturn(true);
 		
@@ -61,8 +67,6 @@ public class TestCodeReviewAllocation extends TestCase{
 
 	public void testDeleteReviewerFromDatabase_Negative()
 	{
-		CodeReviewAllocation reviewAllocator = Mockito.mock(CodeReviewAllocation.class);
-		
 		// When - Then
 		Mockito.when(reviewAllocator.deleteReviewerFromDatabase()).thenReturn(false);
 		
@@ -71,8 +75,6 @@ public class TestCodeReviewAllocation extends TestCase{
 
 	public void testUpdateDatabase()
 	{
-		CodeReviewAllocation reviewAllocator = Mockito.mock(CodeReviewAllocation.class);
-		
 		// When - Then
 		Mockito.when(reviewAllocator.updateDatabase()).thenReturn(true);
 		
@@ -81,12 +83,17 @@ public class TestCodeReviewAllocation extends TestCase{
 
 	public void testUpdateDatabase_Negative()
 	{
-		CodeReviewAllocation reviewAllocator = Mockito.mock(CodeReviewAllocation.class);
-		
 		// When - Then
 		Mockito.when(reviewAllocator.updateDatabase()).thenReturn(false);
 		
 		assertFalse(reviewAllocator.updateDatabase());
 	}
-	
+
+	public void testGetReviewerListFromDatabase()
+	{
+		// When - Then
+		Mockito.when(reviewAllocator.getReviewerListFromDatabase()).thenReturn(new ArrayList<String>());
+		
+		assertNotNull(reviewAllocator.getReviewerListFromDatabase());
+	}
 }
