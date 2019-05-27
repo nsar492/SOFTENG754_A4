@@ -12,4 +12,6 @@ public interface NonDeveloperCodeReview {
 	public Boolean postReviewFeedback(int pullRequestID, String reviewer, String commet);
 	
 	public File FetchReviewComments(int pullRequestID);
+	
+	public Boolean approvePullRequest(int pullRequestID);
 }

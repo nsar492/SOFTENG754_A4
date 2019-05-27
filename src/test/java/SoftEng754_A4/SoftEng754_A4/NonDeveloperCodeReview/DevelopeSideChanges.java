@@ -44,4 +44,16 @@ public class DevelopeSideChanges extends TestCase{
 		//when
 		Mockito.doThrow(new NullPointerException()).when(nonDeveloperCodeReview).FetchReviewComments(pullRequestID);
 	}
+	
+	public void testApproveReview() {
+		pullRequest = Mockito.mock(PullRequest.class);
+		int pullRequestID = pullRequest.getPullRequest(branch, createdBy, linkedWorkItem);
+		nonDeveloperCodeReview = Mockito.mock(NonDeveloperCodeReview.class);
+		
+		//when
+		Mockito.doReturn(true).when(nonDeveloperCodeReview).approvePullRequest(pullRequestID);
+		
+		//then
+		assertTrue(nonDeveloperCodeReview.approvePullRequest(pullRequestID));
+	}
 }
