@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>14</x>
+      <y>168</y>
+      <w>266</w>
+      <h>203</h>
+    </coordinates>
+    <panel_attributes>SoftEng754_A4.SoftEng754_A4.abstraction::Abstractor
+--
+-commitReader: GitReader
+-fileAbstractMap: Map&lt;Integer, String&gt;
+--
++Abstractor(): ctor
++fetchLastCommitDetails(): void
++getGitReader(): GitReader
++getFileMap(): Map&lt;String, String&gt;
++getNumberOfCommitedFiles(): Integer
++ifNewCommit(): Boolean
++getCommitedFileNames(): Set&lt;String&gt;
++downloadTempFileFromRepo(): String
++runFileAbstract(): void
++getFileAbstract(): Map&lt;Integer, String&gt;
++getCommitAbstract(): Map&lt;String, Map&lt;Integer, String&gt;&gt;
++removeTempFiles(): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>14</x>
+      <y>14</y>
+      <w>266</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+SoftEng754_A4.SoftEng754_A4.abstraction::Abstraction
+--
+--
++fetchLastCommitDetails(): void
++getFileMap(): Map&lt;String, String&gt;
++ifNewCommit(): Boolean
++getCommitedFileNames(): Set&lt;String&gt;
++getFileAbstract(): Map&lt;Integer, String&gt;
++getCommitAbstract(): Map&lt;String, Map&lt;Integer, String&gt;&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>336</x>
+      <y>154</y>
+      <w>252</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>SoftEng754_A4.SoftEng754_A4.abstraction::GitReader
+--
+-fileMap = null: Map&lt;String, String&gt;
+--
++getLatestCommit(): void
++getLastCommitFileMap(): Map&lt;String, String&gt;
++getLocalFileMap(): Map&lt;String, String&gt;
++checkForNewCommits(): Boolean
++downloadFileFromGit(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>119</x>
+      <y>133</y>
+      <w>21</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>273</x>
+      <y>196</y>
+      <w>77</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+</diagram>
