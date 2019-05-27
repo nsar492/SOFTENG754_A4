@@ -79,4 +79,14 @@ public class TestCodeReviewAllocation extends TestCase{
 		assertTrue(reviewAllocator.updateDatabase());
 	}
 
+	public void testUpdateDatabase_Negative()
+	{
+		CodeReviewAllocation reviewAllocator = Mockito.mock(CodeReviewAllocation.class);
+		
+		// When - Then
+		Mockito.when(reviewAllocator.updateDatabase()).thenReturn(false);
+		
+		assertFalse(reviewAllocator.updateDatabase());
+	}
+	
 }
