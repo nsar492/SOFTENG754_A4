@@ -22,8 +22,8 @@ public class TestCodeReviewAllocation extends TestCase{
 	 *  test update database - negative
 	 *  test get reviewer list from database
 	 *  test get reviewer list from database - negative
-	 *  test get random reviewer
-	 *  test get random reviewer - negative
+	 *  test get available reviewer
+	 *  test get available reviewer - negative
 	 *  test update reviewer information in database
 	 *  test update reviewer information in database - negative
 	 * */
@@ -106,4 +106,11 @@ public class TestCodeReviewAllocation extends TestCase{
 		assertNotNull(reviewAllocator.getAvailableReviewerFromDatabase());
 	}
 
+	public void testGetAvailableReviewerFromDatabase_Negative()
+	{
+		// When - Then
+		Mockito.when(reviewAllocator.getAvailableReviewerFromDatabase()).thenReturn(null);
+		
+		assertNull(reviewAllocator.getAvailableReviewerFromDatabase());
+	}
 }
