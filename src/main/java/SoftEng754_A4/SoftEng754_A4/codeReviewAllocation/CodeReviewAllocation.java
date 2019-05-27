@@ -12,4 +12,6 @@ public interface CodeReviewAllocation {
 
 	public List<String> getReviewerListFromDatabase();
 
+	public String getAvailableReviewerFromDatabase();
+
 }
