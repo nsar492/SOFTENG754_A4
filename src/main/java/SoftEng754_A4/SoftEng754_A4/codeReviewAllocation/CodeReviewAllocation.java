@@ -6,4 +6,6 @@ public interface CodeReviewAllocation {
 
 	public boolean deleteReviewerFromDatabase();
 
+	public boolean updateDatabase();
+
 }
