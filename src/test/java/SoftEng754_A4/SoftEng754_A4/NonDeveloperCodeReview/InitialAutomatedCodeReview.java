@@ -82,4 +82,12 @@ public class InitialAutomatedCodeReview extends TestCase {
 		assertTrue(nonDeveloperCodeReview.establishConnection(developerToolAddress, reviewToolAddress));
 	}
 		
+	public void testEstablishConnection_Negative() {
+		nonDeveloperCodeReview = Mockito.mock(NonDeveloperCodeReview.class);		
+		//when
+		Mockito.doReturn(false).when(nonDeveloperCodeReview).establishConnection(developerToolAddress, reviewToolAddress);
+				
+		//then
+		assertFalse(nonDeveloperCodeReview.establishConnection(developerToolAddress, reviewToolAddress));	
+	}
 }
