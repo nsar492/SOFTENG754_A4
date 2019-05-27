@@ -56,4 +56,14 @@ public class DevelopeSideChanges extends TestCase{
 		//then
 		assertTrue(nonDeveloperCodeReview.approvePullRequest(pullRequestID));
 	}
+	
+	@Test(expected = NullPointerException.class)
+	public void testApproveReview_Negative() {
+		pullRequest = Mockito.mock(PullRequest.class);
+		int pullRequestID = pullRequest.getPullRequest(branch, createdBy, linkedWorkItem);
+		nonDeveloperCodeReview = Mockito.mock(NonDeveloperCodeReview.class);
+		
+		//when
+		Mockito.doThrow(new NullPointerException()).when(nonDeveloperCodeReview).approvePullRequest(pullRequestID);
+	}
 }
