@@ -3,6 +3,7 @@ package SoftEng754_A4.SoftEng754_A4.NonDeveloperCodeReview;
 import static org.junit.Assert.*;
 
 import java.io.File;
+import java.rmi.RemoteException;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -65,5 +66,14 @@ public class ReviewerSideCodeReview extends TestCase{
 		
 		//then
 		assertTrue(nonDeveloperCodeReview.postReviewFeedback(pullRequestID, reviewer, comment));
+	}
+	
+	@Test(expected = NullPointerException.class)
+	public void testPostReviewFeedback_Negative() {
+		pullRequest = Mockito.mock(PullRequest.class);
+		int pullRequestID = pullRequest.getPullRequest(branch, createdBy, linkedWorkItem);
+		nonDeveloperCodeReview = Mockito.mock(NonDeveloperCodeReview.class);
+		//when
+		Mockito.doThrow(new NullPointerException()).when(nonDeveloperCodeReview).postReviewFeedback(pullRequestID, reviewer, comment);
 	}
 }
