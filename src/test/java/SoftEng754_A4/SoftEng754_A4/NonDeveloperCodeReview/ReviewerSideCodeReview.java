@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import java.io.File;
 
 import org.junit.Before;
+import org.junit.Test;
 import org.mockito.Mockito;
 
 import junit.framework.TestCase;
@@ -39,4 +40,14 @@ public class ReviewerSideCodeReview extends TestCase{
 		//then
 		assertEquals(file, nonDeveloperCodeReview.receiveAutomatedCodeReviewAndAbstraction(branch, pullRequestID, linkedWorkItem));
 	}
+	
+	@Test(expected = NullPointerException.class)
+	public void testReceiveAutomatedCodeReviewFails() {
+		pullRequest = Mockito.mock(PullRequest.class);
+		int pullRequestID = pullRequest.getPullRequest(branch, createdBy, linkedWorkItem);
+		nonDeveloperCodeReview = Mockito.mock(NonDeveloperCodeReview.class);
+				
+		//when
+		Mockito.doThrow(new NullPointerException()).when(nonDeveloperCodeReview).receiveAutomatedCodeReviewAndAbstraction(branch, pullRequestID, linkedWorkItem);
+	}	
 }
