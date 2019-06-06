@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.sound.sampled.ReverbType;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.mockito.Mockito;
 
@@ -28,63 +29,59 @@ public class TestCodeReviewAllocation extends TestCase{
 	 *  test update reviewer information in database - negative
 	 * */
 	
+	public TestCodeReviewAllocation()
+	{
+//		System.out.println("coming here");
+		reviewAllocator = new CodeReviewAllocator();
+		reviewAllocator.openDatabaseConnection();
+	}
+	
+	public void testAddReviewerToDatabase()
+	{
+		
+		String reviewerName = "Ranveer";
+		// When - Then
+//		Mockito.when(reviewAllocator.addReviewerToDatabase("abc")).thenReturn(true);
+		
+		assertTrue(reviewAllocator.addReviewerToDatabase(reviewerName));
+	}
+	/*
 	public void testDatabaseConnection() {
 		
 	}
-	/*
+	
 	@BeforeClass
 	public void initReviewAllocatorObject()
 	{
 		this.reviewAllocator = Mockito.mock(CodeReviewAllocation.class);
 	}
 	
-	public void testAddReviewerToDatabase()
-	{
-		// When - Then
-		Mockito.when(reviewAllocator.addReviewerToDatabase()).thenReturn(true);
-		
-		assertTrue(reviewAllocator.addReviewerToDatabase());
-	}
+	
 	
 	public void testAddReviewerToDatabase_Negative()
 	{
 		// When - Then
-		Mockito.when(reviewAllocator.addReviewerToDatabase()).thenReturn(false);
+		Mockito.when(reviewAllocator.addReviewerToDatabase("abc")).thenReturn(false);
 		
-		assertFalse(reviewAllocator.addReviewerToDatabase());
+		assertFalse(reviewAllocator.addReviewerToDatabase("abc"));
 	}
 
 	public void testDeleteReviewerFromDatabase()
 	{
 		// When - Then
-		Mockito.when(reviewAllocator.deleteReviewerFromDatabase()).thenReturn(true);
+		Mockito.when(reviewAllocator.deleteReviewerFromDatabase("abc")).thenReturn(true);
 		
-		assertTrue(reviewAllocator.deleteReviewerFromDatabase());
+		assertTrue(reviewAllocator.deleteReviewerFromDatabase("abc"));
 	}
 
 	public void testDeleteReviewerFromDatabase_Negative()
 	{
 		// When - Then
-		Mockito.when(reviewAllocator.deleteReviewerFromDatabase()).thenReturn(false);
+		Mockito.when(reviewAllocator.deleteReviewerFromDatabase("abc")).thenReturn(false);
 		
-		assertFalse(reviewAllocator.deleteReviewerFromDatabase());
+		assertFalse(reviewAllocator.deleteReviewerFromDatabase("abc"));
 	}
 
-	public void testUpdateDatabase()
-	{
-		// When - Then
-		Mockito.when(reviewAllocator.updateDatabase()).thenReturn(true);
-		
-		assertTrue(reviewAllocator.updateDatabase());
-	}
-
-	public void testUpdateDatabase_Negative()
-	{
-		// When - Then
-		Mockito.when(reviewAllocator.updateDatabase()).thenReturn(false);
-		
-		assertFalse(reviewAllocator.updateDatabase());
-	}
 
 	public void testGetReviewerListFromDatabase()
 	{
@@ -121,17 +118,17 @@ public class TestCodeReviewAllocation extends TestCase{
 	public void testUpdateReviewerInfoInDatabase()
 	{
 		// When - Then
-		Mockito.when(reviewAllocator.updateReviewerInfoInDatabase()).thenReturn(true);
+		Mockito.when(reviewAllocator.updateCompletedReviewInDatabase("abc")).thenReturn(true);
 		
-		assertTrue(reviewAllocator.updateReviewerInfoInDatabase());
+		assertTrue(reviewAllocator.updateCompletedReviewInDatabase("abc"));
 	}
 	
 	public void testUpdateReviewerInfoInDatabase_Negative()
 	{
 		// When - Then
-		Mockito.when(reviewAllocator.updateReviewerInfoInDatabase()).thenReturn(false);
+		Mockito.when(reviewAllocator.updateCompletedReviewInDatabase("abc")).thenReturn(false);
 		
-		assertFalse(reviewAllocator.updateReviewerInfoInDatabase());
+		assertFalse(reviewAllocator.updateCompletedReviewInDatabase("abc"));
 	}
 	*/
 }
