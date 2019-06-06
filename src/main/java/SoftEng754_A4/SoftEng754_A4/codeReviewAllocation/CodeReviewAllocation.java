@@ -30,12 +30,14 @@ public interface CodeReviewAllocation {
 	 * updateCompletedReviewInDatabase() updates database with active and total review count 
 	 * when a reviewer is assigned a review and returns true if successfully updated
 	 * */
-	public void updateCompletedReviewInDatabase(String reviewerName);
+	public boolean updateCompletedReviewInDatabase(String reviewerName);
 	
 	/**
 	 * updateReviewerInfoInDatabase() updates database with active and total review count 
 	 * when a reviewer is assigned a review and returns true if successfully updated
 	 * */
 	public void assignReview(String reviewerName);
+	
+	public String getReviewer(String reviewerName);
 
 }

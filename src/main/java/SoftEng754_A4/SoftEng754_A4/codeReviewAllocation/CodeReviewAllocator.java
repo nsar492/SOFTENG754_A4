@@ -38,24 +38,6 @@ public class CodeReviewAllocator implements CodeReviewAllocation{
 	}
 
 	@Override
-	public boolean deleteReviewerFromDatabase(String reviewerName) {
-		try {
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery("DELETE FROM Reviewers WHERE ReviewerName = '" 
-					+ reviewerName + "';");
-			
-			//stmt.close();
-			if(rs != null) {
-				//rs.close();
-				return true;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-
-	@Override
 	public List<String> getReviewerListFromDatabase() {
 		ArrayList<String> reviewrList = new ArrayList<String>();
 		try {
@@ -112,7 +94,7 @@ public class CodeReviewAllocator implements CodeReviewAllocation{
 
 	
 	@Override
-	public void updateCompletedReviewInDatabase(String reviewerName) {
+	public boolean updateCompletedReviewInDatabase(String reviewerName) {
 		String getData = "SELECT * FROM Reviewers WHERE ReviewerName = '" + reviewerName + "'";
 		Integer reviewCount = 0, activeReview = 0;
 		try {
@@ -131,12 +113,16 @@ public class CodeReviewAllocator implements CodeReviewAllocation{
 						+ " WHERE ReviewerName = '" + reviewerName + "'");
 				
 				rs = stmt.executeQuery(getData);
-				rs.next();
-				System.out.println(rs.getString(2) + "  " + rs.getString(3) + "  " + rs.getString(4));
+				return rs.next();
+				//System.out.println(rs.getString(2) + "  " + rs.getString(3) + "  " + rs.getString(4));
 			}
-			else System.out.println("Can't update. no active review.");
+			else {
+				System.out.println("Can't update. no active review.");
+				return false;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return false;
 		}
 	}
 
@@ -163,7 +149,7 @@ public class CodeReviewAllocator implements CodeReviewAllocation{
 		}
 	}
 	
-	public void deleteReviewer(String reviewerName) {
+	public boolean deleteReviewerFromDatabase(String reviewerName) {
 		// DELETE FROM Reviewers WHERE ID = 7;
 		String getData = "SELECT ID FROM Reviewers WHERE ReviewerName = '" + reviewerName + "'";
 		String id;
@@ -175,11 +161,11 @@ public class CodeReviewAllocator implements CodeReviewAllocation{
 			id = rs.getString(1);
 			
 			stmt.executeUpdate("DELETE FROM Reviewers WHERE ID = " + id);
-			
+			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		
+			return false;
+		}		
 	}
 
 	public static void main(String[] args) {
@@ -191,7 +177,23 @@ public class CodeReviewAllocator implements CodeReviewAllocation{
 //		System.out.println(tempObj.getAvailableReviewerFromDatabase());
 //		tempObj.updateCompletedReviewInDatabase("Ranveer");
 //		tempObj.assignReview("Ranveer");
-		tempObj.deleteReviewer("Jim");
+//		tempObj.deleteReviewerFromDatabase("Jim");
+		System.out.println(tempObj.getReviewer("Jim"));
 	}
 
+	@Override
+	public String getReviewer(String reviewerName) {
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT ReviewerName FROM Reviewers WHERE ReviewerName = '" + reviewerName + "';");
+			
+			if(rs.next()) {
+				return rs.getString(1);
+			} else return null;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}		
+	}
 }
