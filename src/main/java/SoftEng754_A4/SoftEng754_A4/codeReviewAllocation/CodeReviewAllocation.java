@@ -39,5 +39,7 @@ public interface CodeReviewAllocation {
 	public void assignReview(String reviewerName);
 	
 	public String getReviewer(String reviewerName);
+	
+	public void openDatabaseConnection();
 
 }

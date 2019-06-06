@@ -23,18 +23,20 @@ public class CodeReviewAllocator implements CodeReviewAllocation{
 	
 	@Override
 	public boolean addReviewerToDatabase(String reviewerName) {
+		boolean result = false;
 		try {
 			String addQuery = "INSERT INTO Reviewers (ReviewerName, ReviewCount, ActiveReviews) VALUES ('" 
 					+ reviewerName + "' , 0, 0);";
 			
 			stmt = conn.createStatement();
-			stmt.executeUpdate(addQuery);
+			if(stmt.executeUpdate(addQuery) == 1)
+				result = true;
 			
 			//stmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return false;
+		return result;
 	}
 
 	@Override
