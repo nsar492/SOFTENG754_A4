@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>40</y>
+      <w>690</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+SoftEng754_A4.SoftEng754_A4.NonDeveloperCodeReview::NonDeveloperCodeReview
+--
+--
++getAutomatedCodeReviewAndAbstractionFile(String branch, int pullRequestID, String linkedWorkItem): File
++establishConnection(String sourceAddress, String destinationAddress): Boolean
++receiveAutomatedCodeReviewAndAbstraction(String branch, int pullRequestID, String linkedWorkItem): File
++postReviewFeedback(int pullRequestID, String reviewer, String commet): Boolean
++FetchReviewComments(int pullRequestID): File
++approvePullRequest(int pullRequestID): Boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>330</y>
+      <w>490</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+SoftEng754_A4.SoftEng754_A4.NonDeveloperCodeReview::PullRequest
+--
+--
++getPullRequest(String branch, String createdBy, String linkedWorkItem): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>210</y>
+      <w>30</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+</diagram>
