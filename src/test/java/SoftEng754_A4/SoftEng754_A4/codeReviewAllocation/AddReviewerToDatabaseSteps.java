@@ -15,7 +15,7 @@ public class AddReviewerToDatabaseSteps {
     @Given("$name is a reviewer in the database")
     public void givenFredIsAReviewerInTheDatabase(String name){
        // code reviewer object - needs to be renamed to whatever the class name is
-        editReviewers = new CodeReviewAllocation();
+        editReviewers = new CodeReviewAllocator();
 //        create a user called Fred in the database
         editReviewers.addReviewerToDatabase(name);
     }
@@ -29,7 +29,7 @@ public class AddReviewerToDatabaseSteps {
     @Then("$name is removed from the database")
     public void thenReviewerNamedFredShouldNotExsistInTheDatabase( String name){
        // method call to get Fred from database, assert returns null
-        String reviewer = getReviewer(name);
+        String reviewer = editReviewers.getReviewer(name);
         assertNull(reviewer);
     }
 
