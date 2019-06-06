@@ -7,17 +7,12 @@ public interface CodeReviewAllocation {
 	/**
 	 * addReviewerToDatabase() adds reviewer to database and returns true if successfully added
 	 * */
-	public boolean addReviewerToDatabase();
+	public boolean addReviewerToDatabase(String reviewerName);
 
 	/**
 	 * deleteReviewerFromDatabase() deletes reviewer from database and returns true if successfully added
 	 * */
-	public boolean deleteReviewerFromDatabase();
-
-	/**
-	 * updateDatabase() updates database and returns true if successfully added
-	 * */
-	public boolean updateDatabase();
+	public boolean deleteReviewerFromDatabase(String reviewerName);
 
 	/**
 	 * getReviewerListFromDatabase() retrieves list of reviewer from database
@@ -32,9 +27,15 @@ public interface CodeReviewAllocation {
 	public String getAvailableReviewerFromDatabase();
 
 	/**
+	 * updateCompletedReviewInDatabase() updates database with active and total review count 
+	 * when a reviewer is assigned a review and returns true if successfully updated
+	 * */
+	public void updateCompletedReviewInDatabase(String reviewerName);
+	
+	/**
 	 * updateReviewerInfoInDatabase() updates database with active and total review count 
 	 * when a reviewer is assigned a review and returns true if successfully updated
 	 * */
-	public boolean updateReviewerInfoInDatabase();
+	public void assignReview(String reviewerName);
 
 }
